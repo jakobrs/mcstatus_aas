@@ -7,11 +7,13 @@
       <li>Description: {{ description }}</li>
       <li>Version: {{ version }}</li>
       <li>Players: {{ players.online }} / {{ players.max }}
-        <ul>
-{% for player in players.sample %}
-          <li>{{ player.name }} - {{ player.id }}</li>
-{% endfor %}
-        </ul></li>
+        {% if players.sample %}
+          <ul>
+            {% for player in players.sample %}
+              <li>{{ player.name }} - {{ player.id }}</li>
+            {% endfor %}
+          </ul></li>
+        {% endif %}
     </ul>
   </body>
 </html>
