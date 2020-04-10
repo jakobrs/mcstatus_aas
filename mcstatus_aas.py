@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, abort
 from mcstatus import MinecraftServer
 
 app = Flask(__name__)
@@ -24,3 +24,18 @@ def serve_json(servername):
     server = MinecraftServer.lookup(servername)
     
     return server.status().raw
+
+@app.route('/status')
+def serve_generic():
+    servername = request.args.get('server')
+    statusformat = request.args.get('format', 'status')
+
+    if servername is None:
+        abort(400)
+
+    if statusformat in ['status', 'plaintext']:
+        return serve_status(servername)
+    elif statusformat == 'json':
+        return serve_json(servername)
+    else:
+        abort(400)
