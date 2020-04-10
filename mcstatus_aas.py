@@ -33,7 +33,7 @@ def serve_generic():
     if servername is None:
         abort(400)
 
-    if statusformat in ['status', 'plaintext']:
+    if statusformat in ['status', 'html']:
         return serve_status(servername)
     elif statusformat == 'json':
         return serve_json(servername)

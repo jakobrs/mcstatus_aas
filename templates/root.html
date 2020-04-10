@@ -7,12 +7,12 @@
     <h3>List of endpoints</h3>
     <ul>
       <li>/server/&lt;servername&gt; - Same as /server/&lt;servername&gt;/status</li>
-      <li>/server/&lt;servername&gt;/status - Plaintext server status</li>
+      <li>/server/&lt;servername&gt;/status - HTML server status</li>
       <li>/server/&lt;servername&gt;/json - JSON server status</li>
       <li>/status?servername=...[&amp;format=...] - generic endpoint where format is one of
         <ul>
           <li>status</li>
-          <li>plaintext - same as status</li>
+          <li>html - same as status</li>
           <li>json</li>
         </ul></li>
     </ul>
@@ -20,7 +20,7 @@
     <form action="/status" method="get">
       <input type="string" name="server" placeholder="server address" />
       <select name="format">
-        <option value="status" selected>plaintext</option>
+        <option value="status" selected>html</option>
         <option value="json">json</option>
       </select>
       <input type="submit" value="Query" />
