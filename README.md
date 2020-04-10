@@ -1,6 +1,6 @@
 # mcstatus\_aas - [mcstatus][1] as a service
 
-A tiny wrapper around mcstatus that runs mcstatus as a server
+A tiny wrapper around mcstatus that runs mcstatus as a service
 
 ## Dependencies
 
